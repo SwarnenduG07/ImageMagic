@@ -1,11 +1,13 @@
 import { BorderBeam } from '@/components/magicui/border-beam'
 import Meteors from '@/components/magicui/meteors'
+import SideBar from '@/components/SideBar'
 import React from 'react'
 
 const Layout = ({children}: {children: React.ReactNode}) => {
   return (
     <main className='root'>
         {/* <Meteors number={65}/> */}
+        <SideBar />
        <div className='root-container'>
          <div className='wrapper'>
            {children}
