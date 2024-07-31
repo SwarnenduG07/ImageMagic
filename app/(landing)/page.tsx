@@ -4,9 +4,9 @@ import TypewriterComponent from "typewriter-effect"
 
 const Landing = () => {
     return (
-        <div className="bg-green-900">
+        <div>
          <HomeNavBar />
-           <div className="flex flex-col items-center h-screen justify-center text-8xl">
+           <div className="flex flex-col items-center h-screen justify-center text-8xl text-transparent bg-clip-text bg-gradient-to-r from-pink-700 to-lime-600">
            <TypewriterComponent 
               options={{
                 strings: [
