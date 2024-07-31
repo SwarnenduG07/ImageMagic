@@ -61,7 +61,7 @@ const pathname = usePathname();
             
                 <SignedOut>
                     <Button asChild className='button bg-purple-gradient bg-cover transition ease-in-out delay-150 bg-emerald-500 hover:-translate-y-1 hover:scale-100 hover:bg-indigo-500 duration-200 ...'>
-                        <Link href="/sign-in">Login</Link>
+                        <Link href="/">Login</Link>
                     </Button>
                 </SignedOut>
             </nav>
