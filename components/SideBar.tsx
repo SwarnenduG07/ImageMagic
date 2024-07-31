@@ -53,8 +53,8 @@ const pathname = usePathname();
                                     </li>
                                 )
                             })}
-                            <li className='flex-center cursor-pointer gap-2 p-4 transition ease-in-out delay-10 bg-white hover:-translate-y-1 hover:scale-110 hover:bg-slate-200 duration-10 rounded-full'>
-                                    <UserButton afterSwitchSessionUrl='/' showName />
+                            <li className='flex-center cursor-pointer gap-2 p-4 transition ease-in-out delay-10 bg-white hover:-translate-y-1 hover:scale-110 hover:bg-slate-200 duration-10 rounded-full sidebar-nav_elements'>
+                                <UserButton afterSwitchSessionUrl='/' showName />
                             </li>
                         </ul>
                 </SignedIn>

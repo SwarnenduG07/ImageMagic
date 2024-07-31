@@ -3,9 +3,7 @@ import { UserButton } from "@clerk/nextjs"
  const Landing = () => {
     return (
         <div>
-       <p>Home</p>
-
-       <UserButton afterSwitchSessionUrl="/" />
+       <p>Homeeeee</p>
         </div>
     )
 }
