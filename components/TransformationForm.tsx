@@ -36,11 +36,14 @@ export const formSchema = z.object({
    prompt: z.string(),
    publicId: z.string(),
 })
-const TransformationForm = ({action, data = null, type, userId, creditBalance}: TransformationFormProps) => {
+const TransformationForm = ({action, data = null, type, userId, creditBalance ,config = null}: TransformationFormProps) => {
    const transformationType = transformationTypes[type]
 
    const [Image, setImage] = useState(data)
    const [newTransformation , setTranformation] = useState<Transformations | null> (null)
+   const [isSubmiting , setisSubmiting] = useState (false)
+   const [isTransformimg, setIstransforming] = useState(false)
+   const [transformationConfig, settransformationConfig] = useState(config);
 
   const initialValues = data && action === "Update" ? {
    title: data?.title,
@@ -62,6 +65,14 @@ function onSubmit(values: z.infer<typeof formSchema>) {
 const onSeclectFieldHandeler = (value: string, onChengeField: (Value: string) => void ) => {
         
 } 
+
+const onInputChangeHandler = (fieldname: string, value: string, type: string, onChengeField: (value: string) => void ) => {
+
+  
+}
+const onTransformHandeler = () => {
+
+}
 
   return (
       <Form {...form}>
@@ -102,6 +113,60 @@ const onSeclectFieldHandeler = (value: string, onChengeField: (Value: string) =>
                 )}
                 />
               )}
+              {(type === "remove" || type === "recolor") && (
+                 <div className="prompt-field">
+                      <CustomField 
+                      control={form.control}
+                      name="prompt"
+                      formLabel={
+                          type === 'remove' ? 'Object to remove' : 'object to recolor'
+                      }
+                      className="w-full"
+                      render={(({field}) => (
+                        <Input value={field.value} className="input-field" onChange={(evt) => onInputChangeHandler(
+                            'prompt',
+                            evt.target.value,
+                            type,
+                            field.onChange
+                          )}
+                        />
+                      ))}
+                      />
+                      {type === 'recolor' && (
+                        <CustomField 
+                        control={form.control}
+                        name="color"
+                        formLabel="Replacement Color"
+                        className="w-full"
+                        render={({field}) => (
+                          <Input value={field.value} className="input-field" onChange={(evt) => onInputChangeHandler(
+                            'color',
+                            evt.target.value,
+                            'recolor',
+                            field.onChange
+                          )}
+                          
+                          />
+                        )}
+                        />
+                      )}
+                 </div>
+              )}
+                <div className="flex flex-col gap-4">
+                   <Button type="button"
+                    className="submit-button capitalize" 
+                   disabled={isTransformimg || newTransformation === null}
+                   onClick={onTransformHandeler}
+                     >
+                      {isTransformimg ? "Transforming..." : "Apply Transformation"}
+                     </Button>
+               
+                  <Button 
+                 type="submit"
+                 className="submit-button capitalize" 
+                 disabled={isSubmiting}
+                 >{isSubmiting ? "Submitting..." : "Save Image"}</Button> 
+              </div>
         </form>
     </Form>
    
