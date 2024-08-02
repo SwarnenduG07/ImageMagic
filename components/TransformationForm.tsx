@@ -24,9 +24,9 @@ import {
 import { Input } from "@/components/ui/input"
 import { aspectRatioOptions, defaultValues, transformationTypes} from "@/constants"
 import { CustomField } from "./CustomFielt"
-import { useState } from "react"
+import { useState, useTransition } from "react"
 import { Key } from "lucide-react"
-import { AspectRatioKey } from "@/lib/utils"
+import { AspectRatioKey, debounce, deepMergeObjects } from "@/lib/utils"
 
 
 export const formSchema = z.object({
@@ -39,12 +39,12 @@ export const formSchema = z.object({
 const TransformationForm = ({action, data = null, type, userId, creditBalance ,config = null}: TransformationFormProps) => {
    const transformationType = transformationTypes[type]
 
-   const [Image, setImage] = useState(data)
-   const [newTransformation , setTranformation] = useState<Transformations | null> (null)
-   const [isSubmiting , setisSubmiting] = useState (false)
-   const [isTransformimg, setIstransforming] = useState(false)
-   const [transformationConfig, settransformationConfig] = useState(config);
-
+  const [image, setImage] = useState(data)
+  const [newTransformation, setNewTransformation] = useState<Transformations | null>(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isTransforming, setIsTransforming] = useState(false);
+  const [transformationConfig, setTransformationConfig] = useState(config)
+  const [isPending, startTransition] = useTransition()
   const initialValues = data && action === "Update" ? {
    title: data?.title,
    aspectRation: data?.aspectRation,
@@ -63,15 +63,39 @@ function onSubmit(values: z.infer<typeof formSchema>) {
 }
 
 const onSeclectFieldHandeler = (value: string, onChengeField: (Value: string) => void ) => {
-        
+    const imagesize = aspectRatioOptions[value as AspectRatioKey]
+    setImage((prevState: any) => ({
+       ...prevState,
+       aspeectRatio: imagesize.aspectRatio,
+       width: imagesize.width,
+       hight: imagesize.height, 
+    }))
+    setTransformationConfig(transformationType.config)
+    return onChengeField(value)
 } 
 
 const onInputChangeHandler = (fieldname: string, value: string, type: string, onChengeField: (value: string) => void ) => {
+   debounce(() => {
+   setTransformationConfig((prevState: any) => ({
+    ...prevState,
+    [type]: {
+      ...prevState?.[type],
+      [fieldname === 'prompt' ? 'prompt' : 'to' ]: value
+    }
+     }))
 
-  
+   } , 1000);
+   return onChengeField(value)
 }
-const onTransformHandeler = () => {
-
+const onTransformHandeler = async () => {
+      setIsTransforming(true)
+      setTransformationConfig(
+        deepMergeObjects(newTransformation, transformationConfig)
+      )
+   setNewTransformation(null)
+   startTransition(async () => {
+     // awit updateCradits(userrId, craditFee)
+   })
 }
 
   return (
@@ -155,17 +179,17 @@ const onTransformHandeler = () => {
                 <div className="flex flex-col gap-4">
                    <Button type="button"
                     className="submit-button capitalize" 
-                   disabled={isTransformimg || newTransformation === null}
+                   disabled={isTransforming || newTransformation === null}
                    onClick={onTransformHandeler}
                      >
-                      {isTransformimg ? "Transforming..." : "Apply Transformation"}
+                      {isTransforming ? "Transforming..." : "Apply Transformation"}
                      </Button>
                
                   <Button 
                  type="submit"
                  className="submit-button capitalize" 
-                 disabled={isSubmiting}
-                 >{isSubmiting ? "Submitting..." : "Save Image"}</Button> 
+                 disabled={isSubmitting}
+                 >{isSubmitting ? "Submitting..." : "Save Image"}</Button> 
               </div>
         </form>
     </Form>
