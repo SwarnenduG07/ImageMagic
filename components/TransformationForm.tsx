@@ -15,9 +15,10 @@ import {
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 import { defaultValues } from "@/constants"
+import { CustomField } from "./CustomFielt"
 
 
-const formSchema = z.object({
+export const formSchema = z.object({
    title: z.string(),
    aspectRatio: z.string(),
    color: z.string(),
@@ -44,30 +45,18 @@ function onSubmit(values: z.infer<typeof formSchema>) {
 }
 
   return (
-      // <Form {...form}>
-      //   <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-      //     <FormField
-      //       control={form.control}
-      //       name="Username"
-      //       render={({ field }) => (
-      //         <FormItem>
-      //           <FormLabel>Username</FormLabel>
-      //           <FormControl>
-      //             <Input placeholder="Prompt" {...field} />
-      //           </FormControl>
-      //           <FormDescription>
-      //             This is your public display name.
-      //           </FormDescription>
-      //           <FormMessage />
-      //         </FormItem>
-      //       )}
-      //     />
-      //     <Button type="submit">Submit</Button>
-      //   </form>
-      // </Form>
-      <div>
-        hi tere
-      </div>
+      <Form {...form}>
+        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+              <CustomField 
+              control={form.control}
+              name="title"
+              formLabel="Image Title"
+              className="w-full"
+              render={({ field }) => <Input {...field} className="input-field" />}
+              />
+        </form>
+    </Form>
+   
   )
 }
 
