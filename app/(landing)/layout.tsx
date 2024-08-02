@@ -11,8 +11,6 @@ import React from 'react'
 const Layout = ({children}: {children: React.ReactNode}) => {
   return (
     <div className='h-screen bg-gradient-to-r from-lime-600 to-blue-700'>
-        <Meteors number={65}/>
-      <GridPattern />
        <div className='root-container'>
          <div className='wrapper'>
            {children}
