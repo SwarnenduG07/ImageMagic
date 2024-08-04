@@ -4,15 +4,7 @@ import { useForm } from "react-hook-form"
 import { object, z } from "zod"
  
 import { Button } from "@/components/ui/button"
-import {
-  Form,
-  FormControl,
-  FormDescription,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/components/ui/form"
+import {Form,} from "@/components/ui/form"
 import {
   Select,
   SelectContent,
@@ -22,12 +14,12 @@ import {
 } from "@/components/ui/select"
 
 import { Input } from "@/components/ui/input"
-import { aspectRatioOptions, defaultValues, transformationTypes} from "@/constants"
+import { aspectRatioOptions, creditFee, defaultValues, transformationTypes} from "@/constants"
 import { CustomField } from "./CustomFielt"
 import { useState, useTransition } from "react"
-import { Key } from "lucide-react"
 import { AspectRatioKey, debounce, deepMergeObjects } from "@/lib/utils"
 import MediaUploader from "./MediaUploader"
+import TransformedImage from "./TransformedImage"
 
 
 export const formSchema = z.object({
@@ -88,6 +80,8 @@ const onInputChangeHandler = (fieldname: string, value: string, type: string, on
    } , 1000);
    return onChengeField(value)
 }
+
+//UPDATE CREDIT FEE
 const onTransformHandeler = async () => {
       setIsTransforming(true)
       setTransformationConfig(
@@ -95,7 +89,7 @@ const onTransformHandeler = async () => {
       )
    setNewTransformation(null)
    startTransition(async () => {
-     // awit updateCradits(userrId, craditFee)
+     updateCradits(userId , -1)
    })
 }
 
@@ -192,6 +186,14 @@ const onTransformHandeler = async () => {
                   />
                  )}
                  />
+                 <TransformedImage 
+                    image={image} 
+                    type={type}
+                    title={form.getValues().title}
+                    isTransforming={isTransforming}      
+                    setIsTransforming={setIsTransforming}
+                    transformationConfig={transformationConfig}
+                  />
               </div>
                 <div className="flex flex-col gap-4">
                    <Button type="button"
@@ -215,3 +217,7 @@ const onTransformHandeler = async () => {
 }
 
 export default TransformationForm  
+
+function updateCradits(userrId: any, craditFee: any) {
+  throw new Error("Function not implemented.")
+}
