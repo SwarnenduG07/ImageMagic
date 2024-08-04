@@ -4,19 +4,20 @@ import TypewriterComponent from "typewriter-effect"
 
 const Landing = () => {
     return (
-        <div>
+        <div className="">
          <HomeNavBar/>
-           <div className="flex flex-col items-center h-screen justify-center text-8xl text-transparent bg-clip-text bg-gradient-to-r from-pink-700 to-lime-600">
-           <TypewriterComponent 
+          <div className="h-screen flex flex-col items-center justify-center text-6xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-amber-500">
+          <TypewriterComponent 
               options={{
                 strings: [
-                    "under development"
+                    "Under Development"
                 ],
                 autoStart: true,
                 loop: true,
               }}
            />
-           </div>
+          </div>
+         
         </div>
     )
 }
