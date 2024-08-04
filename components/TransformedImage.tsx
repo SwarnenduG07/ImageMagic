@@ -15,7 +15,7 @@ const TransformedImage = ({image,type,title,isTransforming,setIsTransforming,tra
               Transformed
           </h3>
           {hasDownload && (
-            <Button className="download-btn" onClick={downloadhandeler}>
+            <Button className="download-btn transition ease-in-out delay-120 bg-blue-800 hover:-translate-y-1 hover:scale-110 hover:bg-lime-500 duration-300 ..." onClick={downloadhandeler}>
                 <Image 
                 src="/assets/icons/download.svg"
                 alt="Download"

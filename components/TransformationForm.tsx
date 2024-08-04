@@ -197,7 +197,7 @@ const onTransformHandeler = async () => {
               </div>
                 <div className="flex flex-col gap-4">
                    <Button type="button"
-                    className="submit-button capitalize" 
+                    className="submit-button capitalize transition ease-in-out delay-100 bg-blue-500 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300" 
                    disabled={isTransforming || newTransformation === null}
                    onClick={onTransformHandeler}
                      >
@@ -206,9 +206,10 @@ const onTransformHandeler = async () => {
                
                   <Button 
                  type="submit"
-                 className="submit-button capitalize" 
+                 className="submit-button capitalize transition ease-in-out delay-100 bg-blue-500 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300 ..." 
                  disabled={isSubmitting}
-                 >{isSubmitting ? "Submitting..." : "Save Image"}</Button> 
+                 >{isSubmitting ? "Submitting..." : "Save Image"}
+                 </Button> 
               </div>
         </form>
     </Form>
