@@ -2,6 +2,7 @@ import { BorderBeam } from '@/components/magicui/border-beam'
 import Meteors from '@/components/magicui/meteors'
 import MobileNav from '@/components/MobileNav'
 import SideBar from '@/components/SideBar'
+import { Toaster } from '@/components/ui/toaster'
 import React from 'react'
 
 const Layout = ({children}: {children: React.ReactNode}) => {
@@ -15,6 +16,7 @@ const Layout = ({children}: {children: React.ReactNode}) => {
            {children}
            </div>
         </div> 
+        <Toaster />
     </main>
   )
 }
