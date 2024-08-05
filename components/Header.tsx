@@ -1,7 +1,7 @@
 import { title } from 'process'
 import React from 'react'
 
-const Header = ({title, subtitle}: {title: string, subtitle?: string}) => {
+const Header = ({title, subtitle}: {title?: string | null, subtitle?: string}) => {
   return (
      <>
         <h2 className='h2-bold text-dark-600'>

@@ -98,13 +98,13 @@ const TransformationForm = ({ action, data = null, userId, type, creditBalance, 
           const newImage = await Addimage({
             image: imageData,
             userId,
-            path: '/'
+            path: '/dashboard'
           })
 
           if(newImage) {
             form.reset()
             setImage(data)
-            router.push(`/transformations/${newImage._id}`)
+            router.push(`/dashboard/transformations/${newImage._id}`)
           }
         } catch (error) {
           console.log(error);
@@ -119,11 +119,11 @@ const TransformationForm = ({ action, data = null, userId, type, creditBalance, 
               _id: data._id
             },
             userId,
-            path: `/transformations/${data._id}`
+            path: `/dashboard/transformations/${data._id}`
           })
 
           if(newImage()) {
-            router.push(`/transformations/${newImage._id}`)
+            router.push(`/dashboard/transformations/${newImage._id}`)
           }
         } catch (error) {
           console.log(error);

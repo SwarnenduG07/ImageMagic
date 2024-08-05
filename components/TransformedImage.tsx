@@ -4,7 +4,7 @@ import { CldImage } from "next-cloudinary"
 import { dataUrl, debounce, getImageSize } from "@/lib/utils"
 import { PlaceholderValue } from "next/dist/shared/lib/get-img-props"
 
-const TransformedImage = ({image,type,title,isTransforming,setIsTransforming,transformationConfig, hasDownload = true}:TransformedImageProps ) => {
+const TransformedImage = ({image,type,title,isTransforming,setIsTransforming,transformationConfig, hasDownload = false}:TransformedImageProps ) => {
     const downloadhandeler = () => {
          //TODO
     }
@@ -46,8 +46,8 @@ const TransformedImage = ({image,type,title,isTransforming,setIsTransforming,tra
                 {isTransforming && (
                     <div className="transforming-loader">
                        <Image
-                       src="/assets/icons/spiner.svg"
-                       alt="Transforming"
+                       src="/assets/icons/spinner.svg"
+                       alt="spinner"
                        width={50}
                        height={50}
                        />
