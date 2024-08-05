@@ -15,12 +15,11 @@ export const HomeNavBar = () => {
             </span>
             <Link href={isSignedIn? "/dashboard" : "/sign-up" }>
               <Button className="transition bg-amber-600 ease-in-out delay-100 hover:-translate-y-1 hover:scale-105 duration-200 hover:bg-teal-600 mr-10">
-                Get Started
+                 Get Started
                </Button>
-               </Link>
-            </div>
-             
-         </nav>
+             </Link>
+           </div>
+       </nav>
 
     )
 }
