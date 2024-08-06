@@ -5,6 +5,7 @@ import { ThemeProvider } from "@/components/ui/theme-provider";
 import {  ClerkProvider,} from '@clerk/nextjs'
 import { IBM_Plex_Sans } from "next/font/google";
 import { cn } from "@/lib/utils";
+import { Analytics } from "@vercel/analytics/react"
 const IBMPLEX = IBM_Plex_Sans({ 
   subsets: ["latin"], 
   weight: ["400", "500", "600", "700"],
@@ -25,6 +26,7 @@ export default function RootLayout({
     <ClerkProvider appearance={{
       variables: {  colorPrimary: "#624cf5"}
     }}>
+      <Analytics/>
     <html lang="en">
       <body className={cn("font-IBMPLEX antialiased", IBMPLEX)}>
       <ThemeProvider
