@@ -1,5 +1,4 @@
-import { BorderBeam } from '@/components/magicui/border-beam'
-import Meteors from '@/components/magicui/meteors'
+
 import MobileNav from '@/components/MobileNav'
 import SideBar from '@/components/SideBar'
 import { Toaster } from '@/components/ui/toaster'

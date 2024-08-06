@@ -25,7 +25,7 @@ export const InsufficientCreditsModal = () => {
             <p className="p-16-semibold text-dark-400">Insufficient Credits</p>
             <AlertDialogCancel
               className="border-0 p-0 hover:bg-transparent"
-              onClick={() => router.push("/profile")}
+              onClick={() => router.push("/dashboard/profile")}
             >
               <Image
                 src="/assets/icons/close.svg"
