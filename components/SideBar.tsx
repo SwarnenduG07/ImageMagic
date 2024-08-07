@@ -13,7 +13,7 @@ const pathname = usePathname();
         <div className='flex size-full flex-col gap-4'>
             <Link href='/' className='sidebar-logo'>
             <span className='ml-2.5'>
-                <Image src="/assets/images/logo-text.svg" alt="logo" width={180} height={28}/>
+            <span className='text-3xl text-transparent bg-clip-text font-semibold bg-gradient-to-br from-purple-700 via bg-pink-600 to-red-600 font-serif'>IMAGE-MAGIC</span>
             </span>
             </Link>
             <nav className='sidebar-nav'>

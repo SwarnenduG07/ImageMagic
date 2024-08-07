@@ -13,7 +13,7 @@ const MobileNav = () => {
     return (
         <header className='header'>
             <Link href="/" className='flex items-center gap-2 md:py-2'>
-                <Image src="/assets/images/logo-text.svg" alt='logo' width={180} height={28} />
+                <span className='lg:text-3xl md:text-3xl sm:text-2xl text-2xl h-6 text-transparent bg-clip-text font-semibold bg-gradient-to-br from-purple-700 via bg-pink-600 to-red-600 font-serif'>IMAGE-MAGIC</span>
             </Link>
             <nav className='flex-gap-2'>
                 <SignedIn>
@@ -22,13 +22,13 @@ const MobileNav = () => {
                         <SheetTrigger><Image src="/assets/icons/menu.svg" alt='menu' width={32} height={32} className='cursor-pointer'></Image></SheetTrigger>
                         <SheetContent className='sheet-content sm:w-64'>
                             <>
-                              <Image src="/assets/images/logo-text.svg" alt='logo' width={152} height={23}/>
+                            <span className='sm:text-2xl text-2xl h-6 text-transparent bg-clip-text font-semibold bg-gradient-to-br from-purple-700 via bg-pink-600 to-red-600 font-serif'>IMAGE-MAGIC</span>
 
                      <ul className='header-nav_elements'>
                             {navLinks.map((link) => {
                                 const isActive = link.route === pathname
                                 return (
-                                    <li key={link.route} className={`${isActive && 'gradient-text'} p-18 flex whitespace-nowrap text-emerald-700 transition ease-in-out delay-10 hover:-translate-y-1 hover:scale-11duration-10 ...`}>
+                                    <li key={link.route} className={`${isActive && 'gradient-text'} p-18 flex whitespace-nowrap text-emerald-700 transition ease-in-out delay-10 hover:-translate-y-1 hover:scale-11duration-10 rounded-full`}>
                                         <Link className='sidebar-link cursor-pointer' href={link.route}>
                                         <Image src={link.icon} alt='logo'
                                         width={24}

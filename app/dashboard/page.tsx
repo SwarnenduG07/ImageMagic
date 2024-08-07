@@ -1,9 +1,17 @@
+import { Collection } from "@/components/Collections"
 import { navLinks } from "@/constants"
+import { getALlImagesById } from "@/lib/actions/image.actions"
 import { link } from "fs"
 import Image from "next/image"
 import Link from "next/link"
 
-const Dashboard = () => {
+const Dashboard = async ({searchParams }: SearchParamProps) => {
+
+  const page = Number(searchParams?.page) || 1;
+  const searchQuery = (searchParams?.query as string) || "";
+
+  const images = await getALlImagesById({page, searchQuery})
+  
   return (
      <>
         <section className="home">
@@ -31,8 +39,15 @@ const Dashboard = () => {
                   ))}
               </ul>
         </section>
-       
-     </>
+         <section className="sm:mt-12">
+            <Collection
+          hasSearch={true}
+          totalPages={images?.totalPages}
+          page={page}
+          images={images?.data}
+            />
+         </section>
+     </> 
   )
 }
 
