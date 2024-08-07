@@ -289,7 +289,7 @@ const TransformationForm = ({ action, data = null, userId, type, creditBalance, 
         <div className="flex flex-col gap-4">
           <Button 
             type="button"
-            className="submit-button capitalize"
+            className="submit-button capitalize transition ease-in-out delay-140 bg-purple-700 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-700 duration-230 ..."
             disabled={isTransforming || newTransformation === null}
             onClick={onTransformHandler}
           >
@@ -297,7 +297,7 @@ const TransformationForm = ({ action, data = null, userId, type, creditBalance, 
           </Button>
           <Button 
             type="submit"
-            className="submit-button capitalize"
+            className="submit-button capitalize transition ease-in-out delay-140 bg-purple-700 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-700 duration-230"
             disabled={isSubmitting}
           >
             {isSubmitting ? 'Submitting...' : 'Save Image'}
