@@ -13,7 +13,7 @@ import {  v2 as cloudinary} from "cloudinary";
 const populateUser = (query: any) => query.populate({
     path: "author",
     model: User,
-    select:"_id firstname lastName"
+    select:"_id firstName lastName clerkId"
 })
 
 //ADD IMAGE
@@ -102,7 +102,7 @@ export async function getALlImagesById({limit = 9, page= 1, searchQuery = ""}: {
         secure: true,
        })
 
-       let expression = 'folder=IMAGEMAGIC';
+       let expression = 'folder=IMAGEMAGIC2';
 
        if (searchQuery) {
           expression += `AND ${searchQuery}`

@@ -5,6 +5,7 @@ import { CldImage, getCldImageUrl } from "next-cloudinary"
 import { dataUrl, debounce, download, getImageSize } from "@/lib/utils"
 import { PlaceholderValue } from "next/dist/shared/lib/get-img-props"
 import React from "react"
+import TypewriterComponent from "typewriter-effect"
 
 const TransformedImage = ({image,type,title,isTransforming,setIsTransforming,transformationConfig, hasDownload = false}:TransformedImageProps ) => {
     const downloadhandeler = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
@@ -46,8 +47,8 @@ const TransformedImage = ({image,type,title,isTransforming,setIsTransforming,tra
                   onLoad={() =>{setIsTransforming && setIsTransforming(false)}}
                   onError={() => {
                     debounce(() => {
-                        (false)
-                    },8000)
+                        setIsTransforming && setIsTransforming(false)
+                    },8000)()
                   }}
                   {...transformationConfig}
                 />
@@ -59,6 +60,17 @@ const TransformedImage = ({image,type,title,isTransforming,setIsTransforming,tra
                        width={50}
                        height={50}
                        />
+                       <p className="text-white/80">
+                       <TypewriterComponent 
+                            options={{
+                               strings: [
+                                 "Please wait..."
+                                   ],
+                                autoStart: true,
+                                 loop: true,
+                              }}
+                             />                      
+                       </p>
                     </div>
                 )}
         </div>
