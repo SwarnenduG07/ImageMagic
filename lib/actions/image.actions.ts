@@ -9,6 +9,7 @@ import User from "../database/models/user.model";
 import Image from "../database/models/image.model";
 import { redirect } from "next/navigation";
 import {  v2 as cloudinary} from "cloudinary";
+import exp from "constants";
 
 const populateUser = (query: any) => query.populate({
     path: "author",
@@ -142,4 +143,35 @@ export async function getALlImagesById({limit = 9, page= 1, searchQuery = ""}: {
         handleError(e)
     }
 }
+
+// GET IMAGES BY USER
+export async function getUserImages({
+    limit = 9,
+    page = 1,
+    userId,
+  }: {
+    limit?: number;
+    page: number;
+    userId: string;
+  }) {
+    try {
+      await connectToDatabase();
+  
+      const skipAmount = (Number(page) - 1) * limit;
+  
+      const images = await populateUser(Image.find({ author: userId }))
+        .sort({ updatedAt: -1 })
+        .skip(skipAmount)
+        .limit(limit);
+  
+      const totalImages = await Image.find({ author: userId }).countDocuments();
+  
+      return {
+        data: JSON.parse(JSON.stringify(images)),
+        totalPages: Math.ceil(totalImages / limit),
+      };
+    } catch (error) {
+      handleError(error);
+    }
+  }
     
