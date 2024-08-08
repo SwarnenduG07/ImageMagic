@@ -26,6 +26,7 @@ import { getCldImageUrl } from "next-cloudinary"
 import { Addimage, UpdateImage } from "@/lib/actions/image.actions"
 import { useRouter } from "next/navigation"
 import { CustomField } from "./CustomFielt"
+import { InsufficientCreditsModal } from "./InsufficentCredits"
 
  
 export const formSchema = z.object({
@@ -179,7 +180,7 @@ const TransformationForm = ({ action, data = null, userId, type, creditBalance, 
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-        {/* {creditBalance < Math.abs(creditFee) && <InsufficientCreditsModal />} */}
+        {creditBalance < Math.abs(creditFee) && <InsufficientCreditsModal />}
         <CustomField 
           control={form.control}
           name="title"

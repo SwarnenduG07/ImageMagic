@@ -31,7 +31,7 @@ export async function checkoutCredits(tramsaction: CheckoutTransactionParams) {
             buyerId: tramsaction.buyerId,
         },
         mode: "payment",
-        success_url: `${process.env.NEXT_PUBLIC_SERVER_URL}/profile `,
+        success_url: `${process.env.NEXT_PUBLIC_SERVER_URL}/dashboard/profile `,
         cancel_url: `${process.env.NEXT_PUBLIC_SERVER_URL}/dashboard`,
     })
 
