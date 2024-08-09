@@ -1,3 +1,5 @@
+# IMAGE-MAGIC
+ 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
@@ -13,24 +15,117 @@ pnpm dev
 # or
 bun dev
 ```
-
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-## Learn More
+pen [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-To learn more about Next.js, take a look at the following resources:
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+This project uses [`shadcn`](https://ui.shadcn.com/) for UI's.
 
-## Deploy on Vercel
+# For Local Development
+1st Clone the Repo
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```
+git clone https://github.com/SwarnenduG07/ImageMagic.git
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+cd imagemagic
+```
+
+Go to the project directory and do
+
+ ```bash
+npm install
+```
+
+### Next Step
+
+ Go to _*[.env.example]*_ 
+ Replace your won API keys with existing one's
+
+### Replace
+
+ CLERK_PUBLISHABLE_KEY &  CLERK_SECRET_KEY & webhook secret
+
+ Go to [`Clerk`](https://clerk.com/)
+
+Cloudinary_API_TOKEN
+
+Go to[`Cloudinary`](https://cloudinary.com/documentation) Then Copy 
+
+```
+NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME
+CLOUDINARY_API_KEY
+CLOUDINARY_API_SECRET
+```
+Then go to setting/upload and eneble unsignedurl then create app and then give a folder name. then go to ad ons and turn on google auto tagging.
+
+## Db_URL
+
+go to [`MongoDb Altas`]([`Cloudinary`](https://cloudinary.com/documentation) ) 
+
+STRIP API TOKEN & STRIPE_WEBHOOK_SECRET
+
+Go to [`Strip`](https://stripe.com/in)
+
+
+## How to Download strip-cli
+
+In WINDOWS
+we will use [`Scoop`](https://scoop.sh/) to install it so
+
+Open PowerShell and pest this command to install scoop
+
+```bash
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression
+```
+
+Now we will install Strip-cli
+To install this pest this 👇 command
+
+```bash
+scoop bucket add stripe https://github.com/stripe/scoop-stripe-cli.git
+scoop install stripe
+```
+
+This will install Strip-cli
+
+### For Other OS
+
+ Visit this [`Strip-cli`](https://docs.stripe.com/stripe-cli)
+ and install this
+
+Then Create an account and get a API key and replace this with STRIPE_API_KEY then go to webhook and download the strip-cli and run it  
+
+```bash
+stripe login
+```
+
+In your terminal and do then
+
+```bash
+stripe listen --forward-to localhost:3000/api/webhook
+```
+
+ in webhook section and it in your terminal you will get something like this 
+
+```bash
+[whsec_97347152fae0xxxxxx823xxb1707d0b4aaa1794a5abf9c1sdkjh17]
+```
+
+put this in your STRIPE_WEBHOOK_SECRET
+
+## For Running the project
+
+  ```bash
+npm run dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
