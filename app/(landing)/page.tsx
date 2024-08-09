@@ -1,13 +1,16 @@
 "use client"
 import HomeNavBar from "@/components/HomeNavbar"
+
 import LandingContent from "@/components/LandingContent"
-import TypewriterComponent from "typewriter-effect"
+import Testimonials from "@/components/Testimonials"
+
 
 const Landing = () => {
     return (
         <div className="">
-            <HomeNavBar/>
-            <LandingContent />   
+         <HomeNavBar/>
+         <LandingContent />  
+         <Testimonials />
        </div>
     )
 }

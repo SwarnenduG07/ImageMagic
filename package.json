@@ -35,6 +35,7 @@
     "react": "^18",
     "react-dom": "^18",
     "react-hook-form": "^7.52.1",
+    "react-tweet": "^3.2.1",
     "stripe": "^16.6.0",
     "svix": "^1.27.0",
     "tailwind-merge": "^2.4.0",

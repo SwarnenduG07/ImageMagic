@@ -9,7 +9,7 @@ export const HomeNavBar = () => {
     const  isSignedIn  = useAuth()
     return (
          <nav className="fixed w-full  border-b border-purple-500 dark:border-gray-600">
-          <div className="pt-5 pb-5 flex flex-wrap items-center justify-between">
+          <div className="pt-5 pb-5 flex flex-wrap items-center justify-between filter backdrop-blur-xl">
             <span className="text-xl font-bold text-emerald-400 lg:ml-16 md:ml-16 lg:text-3xl md:text-2xl ml-5">
                IMAGE-MAGIC
             </span>

@@ -1,20 +1,22 @@
+"use client"
 import TypewriterComponent from "typewriter-effect"
+import ShinyButton from "./magicui/shiny-button"
+import Link from "next/link"
 
 const LandingContent = () => {
   return (
-    <main>
-          <span className="flex flex-col justify-center text-center pt-52 text-6xl text-emerald-500 font-bold">
+    <div>
+          <span className="flex flex-col justify-center text-center pt-36 text-6xl text-emerald-500 font-bold">
              The best AI Platform For
          </span>
         
-          <div className="flex flex-col items-center justify-center text-6xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-amber-500">
+          <div className="flex flex-col items-center justify-center text-6xl font-semibold pt-16 text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-rose-500">
           <TypewriterComponent 
               options={{
                 strings: [
-                    "Under Development",
                     "Backgound Removal",
                     "Object Removal",
-                    "Color Changing",
+                    "Object Recolor",
                     "Ratio Conversion"
                 ],
                 autoStart: true,
@@ -22,10 +24,16 @@ const LandingContent = () => {
               }}
            />
           </div>
-          <span className="flex flex-col justify-center text-center pt-20 text-2xl text-slate-400 font-light">
+          <Link href="/dashboard">
+           <span className="flex flex-col items-center    mt-12">
+             <ShinyButton text="Get Started" className="rounded-full w-44 h-10 "/>
+            </span>
+           </Link>
+          <span className="flex flex-col justify-center text-center pt-10 pb-4 text-2xl text-slate-400 font-light">
             No credit Card Required
          </span>
-    </main>
+
+    </div>
   )
 }
 
