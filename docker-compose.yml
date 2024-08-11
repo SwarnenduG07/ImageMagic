@@ -1,0 +1,23 @@
+version: '3.8'
+services:
+  mongodb:
+    image: mongo
+    container_name: mongodb
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+
+  imagemagic-1:
+    image: swarnendug07/imagemagic
+    container_name: imagemagic_app
+    restart: always # Fixed typo: 'alwas' to 'always'
+    depends_on:
+       - mongodb
+    ports:
+      - "3000:3000"
+    environment:
+      MONGO_URL: "mongodb://mongodb:27017" # Added a space after the colon
+
+volumes:
+   mongodb_data:
