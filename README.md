@@ -64,7 +64,7 @@ NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME
 CLOUDINARY_API_KEY
 CLOUDINARY_API_SECRET
 ```
-Then go to setting/upload and eneble unsignedurl then create app and then give a folder name. then go to ad ons and turn on google auto tagging.
+Then go to setting/upload and enable unsigned URL then create app and then give a folder name. then go to adOns and turn on google auto tagging.
 
 ## Db_URL
 
