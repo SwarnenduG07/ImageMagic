@@ -23,7 +23,7 @@ jobs:
             context: .
             file: ./Dockerfile.user
             push: true
-            tags: swarnendug07/fluxcraft:v1
+            tags: swarnendug07/imagemagic
           
       - name: Verify Pushed Image
-        run: docker pull swarnendug07/fluxcraft:v1
+        run: docker pull swarnendug07/imagemagic
