@@ -1,6 +1,5 @@
 "use-client"
-import { useAuth } from "@clerk/nextjs"
-import { Description } from "@radix-ui/react-dialog"
+
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card"
 
 const testimonials = [
@@ -17,12 +16,12 @@ const testimonials = [
     {
         name: "Ava Bennett",
         title: "Frontend Engineer",
-        description: "Cool product Man. You have done a nice job. Fetures are outstanding. Keep Going",
+        description: "Cool product Man. You have done a nice job. Features are outstanding. Keep Going",
     },
     {
         name: "Samumdar Altman",
         title: "",
-        description: "It generated exact image as prompted &  the image quatity is top notch",
+        description: "It generated exact image as prompted &  the image quality is top notch",
     }
 ]
 export const Testimonials = () => {
