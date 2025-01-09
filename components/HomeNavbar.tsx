@@ -1,28 +1,50 @@
-
-import Image from "next/image"
+"use client"
+import { motion } from "framer-motion";
 import { Button } from "./ui/button"
 import Link from "next/link"
 import { useAuth } from '@clerk/nextjs';
 
-
 export const HomeNavBar = () => {
-    const  isSignedIn  = useAuth()
+    const { isSignedIn } = useAuth()
+    
     return (
-         <nav className="fixed w-full  border-b border-purple-500 dark:border-gray-600 z-50">
-          <div className="pt-5 pb-5 flex flex-wrap items-center justify-between filter backdrop-blur-sm">
-            <span className="text-xl font-bold text-emerald-400 lg:ml-16 md:ml-16 lg:text-3xl md:text-2xl ml-5">
-               IMAGE-MAGIC
-            </span>
-            <Link href={isSignedIn? "/dashboard" : "/sign-up" }>
-              <Button className="transition bg-amber-600 ease-in-out delay-100 hover:-translate-y-1 hover:scale-105 duration-200 hover:bg-teal-600 mr-5 md:h-10 md:w-25 lg:h-10 lg:w-25 h-8 w-23 rounded-full
-              
-              ">
-                 Get Started
-               </Button>
-             </Link>
-           </div>
-       </nav>
+        <motion.nav 
+            initial={{ y: -100 }}
+            animate={{ y: 0 }}
+            className="fixed w-full z-50"
+        >
+            <div className="backdrop-blur-xl bg-black/10 border-b border-white/10">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="flex items-center justify-between h-16">
+                        <motion.span 
+                            initial={{ opacity: 0, x: -20 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-purple-400 via-violet-400 to-indigo-400 bg-clip-text text-transparent"
+                        >
+                            IMAGE-MAGIC
+                        </motion.span>
 
+                        <div className="flex gap-4">
+                            <Link href={isSignedIn ? "/dashboard" : "/sign-up"}>
+                                <Button className="relative overflow-hidden group bg-gradient-to-r from-violet-600 to-indigo-600 px-6 py-2 rounded-full">
+                                    <div className="absolute inset-0 bg-white/20 group-hover:bg-transparent transition-all duration-300" />
+                                    <span className="relative text-white font-semibold">
+                                        Get Started
+                                    </span>
+                                </Button>
+                            </Link>
+                            {!isSignedIn && (
+                                <Link href="/sign-in">
+                                    <Button variant="ghost" className="text-white/80 hover:text-white hover:bg-white/10">
+                                        Sign In
+                                    </Button>
+                                </Link>
+                            )}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </motion.nav>
     )
 }
 export default HomeNavBar

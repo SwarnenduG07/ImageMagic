@@ -28,7 +28,7 @@
     "class-variance-authority": "^0.7.0",
     "cloudinary": "^2.4.0",
     "clsx": "^2.1.1",
-    "framer-motion": "^11.3.19",
+    "framer-motion": "^11.16.4",
     "lucide-react": "^0.417.0",
     "mongodb": "^6.8.0",
     "mongoose": "^8.5.2",

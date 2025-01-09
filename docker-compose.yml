@@ -11,13 +11,13 @@ services:
   imagemagic-1:
     image: swarnendug07/imagemagic
     container_name: imagemagic_app
-    restart: always # Fixed typo: 'alwas' to 'always'
+    restart: always 
     depends_on:
        - mongodb
     ports:
       - "3000:3000"
     environment:
-      MONGO_URL: "mongodb://mongodb:27017" # Added a space after the colon
+      MONGO_URL: "mongodb://mongodb:27017" 
 
 volumes:
    mongodb_data:
