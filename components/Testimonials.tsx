@@ -4,24 +4,24 @@ import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 
 const testimonials = [
     {
-        name: "Liam Carter",
-        title: "Full-Stack + web3 sr.Engineer",
-        description: "Good work! Generative Fill  and Object recolor are OutStanding. ",
+        name: "Sarah Chen",
+        title: "E-commerce Manager",
+        description: "Saved hours on product photo editing. The background removal is perfect every time!",
     },
     {
-        name: "Nizzy",
-        title: "Full-Stack Engineer",
-        description: "I am using this in my daily life now. In terms of Frontend this looks really good",
+        name: "Mike Rodriguez",
+        title: "Social Media Creator",
+        description: "Game-changer for content creation. I can now resize my images for every platform instantly.",
     },
     {
-        name: "Ava Bennett",
-        title: "Frontend Engineer",
-        description: "Cool product Man. You have done a nice job. Features are outstanding. Keep Going",
+        name: "Emma Thompson",
+        title: "Interior Designer",
+        description: "The object recoloring tool is incredible. I can show clients different color options in seconds.",
     },
     {
-        name: "Samumdar Altman",
-        title: "",
-        description: "It generated exact image as prompted &  the image quality is top notch",
+        name: "David Kim",
+        title: "Real Estate Agent",
+        description: "Perfect for cleaning up property photos. Removes unwanted objects seamlessly.",
     }
 ];
 
@@ -65,7 +65,7 @@ export const Testimonials = () => {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.3 }}
-            className="container mx-auto px-4 sm:px-6 lg:px-8 py-20"
+            className="container mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10"
         >
             <motion.h2 
                 variants={{
@@ -89,7 +89,7 @@ export const Testimonials = () => {
                         custom={index}
                         className="h-full"
                     >
-                        <Card className="bg-gradient-to-b from-[#192339] to-[#121827] border border-white/10 text-white shadow-xl hover:shadow-emerald-500/20 transition-all duration-300 h-full flex flex-col">
+                        <Card className="bg-gradient-to-b from-[#0f1729]/80 to-[#0a0f1d]/80 backdrop-blur-sm border border-white/5 text-white shadow-xl hover:shadow-purple-500/20 transition-all duration-300 h-full flex flex-col">
                             <CardHeader className="flex-1">
                                 <CardTitle className="flex items-center gap-x-2 mb-4">
                                     <div>

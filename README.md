@@ -1,6 +1,26 @@
-# IMAGE-MAGIC
- 
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# ImageMagic
+
+ImageMagic is a Next.js-based web application for AI-powered image transformations with integrated payments.
+
+## Overview
+
+Built with modern web technologies:
+- Next.js 14 with App Router
+- React 18 and TypeScript
+- Clerk Authentication
+- MongoDB Database
+- Cloudinary Image Processing
+- Stripe Payments
+- Tailwind CSS & shadcn/ui
+- Framer Motion animations
+
+## Quick Start
+
+1. Clone the repository:
+```bash
+git clone https://github.com/SwarnenduG07/ImageMagic.git
+cd imagemagic
+```
 
 ## Getting Started
 
